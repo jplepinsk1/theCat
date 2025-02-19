@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 import requests
 
 app = Flask(__name__)
@@ -9,8 +9,11 @@ API = 'https://api.thecatapi.com/v1/images/search'
 def index():
     return render_template('index.html')
 
-@app.route('/submit', methods=['POST'])
+@app.route('/submit', methods=['POST', 'GET'])
 def submit():
+    if request.method == 'GET':
+        return redirect('/')
+
     nome = request.form.get('name', None)
     if not nome:
         return render_template('index.html', erro="Você não informou o seu nome!")
