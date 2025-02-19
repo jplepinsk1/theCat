@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Qual gato sou eu?</title>
+</head>
+<body>
+    <header>
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616430.png" alt="Imagem de um gato">
+        <h1>Qual gato sou eu?</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="form">
+                <form action="/submit" method="post">
+                    <label for="name">Informe seu nome:</label>
+                    <input type="text" name="name" id="name" required>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+            <div class="cat">
+                <figure>
+                {% if not url %}
+                    <img src="https://www.creativefabrica.com/wp-content/uploads/2021/01/26/Cat-Icon-Graphics-8071439-1-1-580x387.jpg" alt="Imagem de interrogação">
+                {% else %}
+                    <img src="{{url}}" alt="Imagem de gato">
+                </figure>
+                <p>{{nome}}</p>
+                {% endif %}
+            </div>
+
+
+        </div>
+    </main>
+    <footer>
+        <p>😸 Desenvolvido com <a href="https://thecatapi.com/" target="_blank">The Cat API</a> 😻</p>
+    </footer>
+</body>
+</html>
