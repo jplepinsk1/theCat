@@ -3,6 +3,7 @@ import requests
 
 app = Flask(__name__)
 
+
 API = 'https://api.thecatapi.com/v1/images/search'
 
 @app.route('/', methods=['GET'])
